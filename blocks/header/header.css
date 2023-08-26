@@ -1,0 +1,18 @@
+.header {
+  width: calc(100% - 40px);
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 45px 0 40px;
+  border-bottom: 1px rgba(84, 84, 84, .7) solid;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    width: 100%;
+    min-height: 84px;
+    padding: 26px 0 29px;
+  }
+}

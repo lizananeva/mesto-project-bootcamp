@@ -1,0 +1,32 @@
+.popup__close {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: calc(100% + 8px);
+  width: 32px;
+  height: 32px;
+  background: transparent url(../../../images/icons/cross.svg) center / cover no-repeat;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  transition: opacity .4s;
+}
+
+.popup__close:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 550px) {
+  .popup__close {
+    bottom: calc(100% + 16px);
+    left: calc(100% + -32px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .popup__close {
+    width: 20px;
+    height: 20px;
+    bottom: calc(100% + 16px);
+    left: calc(100% + -19px);
+  }
+}

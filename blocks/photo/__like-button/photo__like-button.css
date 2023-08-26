@@ -1,0 +1,7 @@
+.photo__like-button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  margin-left: 32px;
+  cursor: pointer;
+}

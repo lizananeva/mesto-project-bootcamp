@@ -1,0 +1,14 @@
+.footer {
+  min-height: 144px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 68px 20px 60px;
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    min-height: 98px;
+    padding: 48px 20px 36px;
+  }
+}

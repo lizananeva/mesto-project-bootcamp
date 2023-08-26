@@ -1,0 +1,7 @@
+.photo__footer {
+  min-height: 79.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
