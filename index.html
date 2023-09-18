@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mesto</title>
+  <title lang="en">Mesto</title>
   <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
   <header class="header">
-    <svg class="header__logo">
-      <use xlink:href="images/icons/sprite.svg#logo"/>
-    </svg>
+    <img class="header__logo" src="images/icons/logo.svg" alt="Логотип проекта Mesto">
   </header>
   <main class="content">
     <section class="profile" aria-label="Профиль пользователя">
       <img class="profile__avatar" src="images/content/avatar.jpg" alt="Аватар пользователя">
       <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <h1 class="profile__name text-ellipses">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
-        <p class="profile__description">Исследователь океана</p>
+        <p class="profile__description text-ellipses">Исследователь океана</p>
       </div>
       <button class="profile__add-button" type="button" aria-label="Добавить фото"></button>
     </section>
@@ -28,12 +26,8 @@
           <article class="photo">
             <img class="photo__image" src="images/content/nizhny-novgorod.jpg" alt="Вид на Волгу возле Кремля, Нижний Новгород">
             <div class="photo__footer">
-              <h2 class="photo__caption">Нижний Новгород</h2>
-              <button class="photo__like-button" type="button" aria-label="Нравится">
-                <svg class="photo__like-button-icon">
-                  <use xlink:href="images/icons/sprite.svg#heart" />
-                </svg>
-              </button>
+              <h2 class="photo__caption text-ellipses">Нижний Новгород</h2>
+              <button class="photo__like-button" type="button" aria-label="Нравится"></button>
             </div>
           </article>
         </li>
@@ -41,7 +35,7 @@
           <article class="photo">
             <img class="photo__image" src="images/content/tambov.jpg" alt="Вид на вечерний Тамбов">
             <div class="photo__footer">
-              <h2 class="photo__caption">Тамбов</h2>
+              <h2 class="photo__caption text-ellipses">Тамбов</h2>
               <button class="photo__like-button" type="button" aria-label="Нравится">
                 <svg class="photo__like-button-icon">
                   <use xlink:href="images/icons/sprite.svg#heart" />
@@ -54,7 +48,7 @@
           <article class="photo">
             <img class="photo__image" src="images/content/novosibirsk.jpg" alt="Новосибирск">
             <div class="photo__footer">
-              <h2 class="photo__caption">Новосибирск</h2>
+              <h2 class="photo__caption text-ellipses">Новосибирск</h2>
               <button class="photo__like-button" type="button" aria-label="Нравится">
                 <svg class="photo__like-button-icon">
                   <use xlink:href="images/icons/sprite.svg#heart" />
@@ -67,7 +61,7 @@
           <article class="photo">
             <img class="photo__image" src="images/content/kazan.jpg" alt="Вид на Казанский кремль ночью">
             <div class="photo__footer">
-              <h2 class="photo__caption">Казань</h2>
+              <h2 class="photo__caption text-ellipses">Казань</h2>
               <button class="photo__like-button" type="button" aria-label="Нравится">
                 <svg class="photo__like-button-icon">
                   <use xlink:href="images/icons/sprite.svg#heart" />
@@ -80,7 +74,7 @@
           <article class="photo">
             <img class="photo__image" src="images/content/tver.jpg" alt="Старый Волжский мост, Тверь">
             <div class="photo__footer">
-              <h2 class="photo__caption">Тверь</h2>
+              <h2 class="photo__caption text-ellipses">Тверь</h2>
               <button class="photo__like-button" type="button" aria-label="Нравится">
                 <svg class="photo__like-button-icon">
                   <use xlink:href="images/icons/sprite.svg#heart" />
@@ -93,7 +87,7 @@
           <article class="photo">
             <img class="photo__image" src="images/content/yekaterinburg.jpg" alt="Дом Севастьянова, Екатеринбург">
             <div class="photo__footer">
-              <h2 class="photo__caption">Екатеринбург</h2>
+              <h2 class="photo__caption text-ellipses">Екатеринбург</h2>
               <button class="photo__like-button" type="button" aria-label="Нравится">
                 <svg class="photo__like-button-icon">
                   <use xlink:href="images/icons/sprite.svg#heart" />
@@ -106,14 +100,14 @@
     </section>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    <p class="footer__copyright" lang="en">&copy; 2020 Mesto Russia</p>
   </footer>
   <!-- <div class="popup popup_opened"> -->
   <div class="popup">
     <div class="popup__container">
       <button  class="popup__close" type="button" aria-label="Закрыть"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form form">
+      <form class="popup__form form" name="profile-form">
         <label class="form__field">
           <input class="form__input" type="text" placeholder="Имя">
         </label>
