@@ -25,6 +25,15 @@ const initialCards = [
   }
 ];
 
+//Редактирование профиля
+const profileEditButton = document.querySelector('.profile__edit-button'); //Кнопка редактирования профиля
+const profilePopup = document.querySelector('.popup_type_edit-profile'); //Попап редактирования профиля
+const profileForm = profilePopup.querySelector('.form'); //Форма редактирования профиля
+const profileNameInput = profileForm.querySelector('.form__input[name=profile-name]'); //Поле ввода (Имя) в форме редактирования профиля
+const profileDescInput = profileForm.querySelector('.form__input[name=profile-desc]'); //Поле ввода (Род деятельности) в форме редактирования профиля
+const profileName = document.querySelector('.profile__name'); //Имя профиля на странице
+const profileDesc = document.querySelector('.profile__description'); //Описание профиля на странице
+
 //Создание списка карточек
 const cardTemplate = document.querySelector('#card').content; //Шаблон карточки
 const cardElement = cardTemplate.querySelector('.photo-grid__item'); //Элемент карточки
@@ -57,6 +66,13 @@ function closePopup(popup) {
   }
 }
 
+function handleProfileFormSubmit(event) {
+  event.preventDefault();
+  profileName.textContent = profileNameInput.value;
+  profileDesc.textContent = profileDescInput.value;
+  closePopup(profilePopup);
+}
+
 function createCard({name, link}) {
   const card = cardElement.cloneNode(true);
   const cardImage = card.querySelector('.photo__image');
@@ -86,18 +102,14 @@ initialCards.forEach(el => {
   addCard(newCard);
 });
 
-function handleSubmitForm(event) {
-  // сделать универсальным
+function handleCardFormSubmit(event) {
   event.preventDefault();
   const newCard = createCard({name: cardName.value, link: cardLink.value});
   addCard(newCard);
   cardName.value = '';
   cardLink.value = '';
+  closePopup(cardPopup);
 }
-
-cardAddButton.addEventListener('click', event => {
-  openPopup(cardPopup);
-});
 
 popupCloseButtons.forEach(button => {
   button.addEventListener('click', event => {
@@ -106,4 +118,16 @@ popupCloseButtons.forEach(button => {
   });
 });
 
-cardForm.addEventListener('submit', handleSubmitForm);
+profileEditButton.addEventListener('click', event => {
+  openPopup(profilePopup);
+  profileNameInput.value = profileName.textContent;
+  profileDescInput.value = profileDesc.textContent;
+});
+
+profileForm.addEventListener('submit', handleProfileFormSubmit)
+
+cardAddButton.addEventListener('click', event => {
+  openPopup(cardPopup);
+});
+
+cardForm.addEventListener('submit', handleCardFormSubmit);
