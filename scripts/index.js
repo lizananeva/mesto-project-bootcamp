@@ -37,8 +37,25 @@ const cardForm = cardPopup.querySelector('.form'); //Форма добавлен
 const cardName = cardForm.querySelector('.form__input[name=card-name]'); //Поле ввода (Название) в форме добавления карточки
 const cardLink = cardForm.querySelector('.form__input[name=card-link]'); //Поле ввода (Ссылка на картинку) в форме добавления карточки
 
+//Попап просмотра изображения
+const photoPopup = document.querySelector('.popup_type_photo'); //Попап просмотра карточки
+const photoPopupImage = photoPopup.querySelector('.popup__image'); // Изображение карточки в попапе
+const photoPopupCaption = photoPopup.querySelector('.popup__caption'); //Подпись карточки в попапе
+
 //Закрытие всех попапов
-const popupCloseButtons = cardPopup.querySelectorAll('.popup__close');
+const popupCloseButtons = document.querySelectorAll('.popup__close');
+
+function openPopup(popup) {
+  if (!popup.classList.contains('popup_opened')) {
+    popup.classList.add('popup_opened');
+  }
+}
+
+function closePopup(popup) {
+  if (popup.classList.contains('popup_opened')) {
+    popup.classList.remove('popup_opened');
+  }
+}
 
 function createCard({name, link}) {
   const card = cardElement.cloneNode(true);
@@ -49,6 +66,12 @@ function createCard({name, link}) {
   cardImage.src = link;
   cardImage.alt = name;
   cardCaption.textContent = name;
+  cardImage.addEventListener('click', event => {
+    openPopup(photoPopup);
+    photoPopupImage.src = cardImage.src;
+    photoPopupImage.alt = cardImage.alt;
+    photoPopupCaption.textContent = cardImage.alt;
+  });
   cardLikeButton.addEventListener('click', event => event.target.classList.toggle('photo__like-button_active'));
   cardDeleteButton.addEventListener('click', () => card.remove());
   return card;
@@ -62,18 +85,6 @@ initialCards.forEach(el => {
   const newCard = createCard(el);
   addCard(newCard);
 });
-
-function openPopup(popup) {
-  if (!popup.classList.contains('popup_opened')) {
-    popup.classList.add('popup_opened');
-  }
-}
-
-function closePopup(popup) {
-  if (popup.classList.contains('popup_opened')) {
-    popup.classList.remove('popup_opened');
-  }
-}
 
 function handleSubmitForm(event) {
   // сделать универсальным
@@ -90,7 +101,8 @@ cardAddButton.addEventListener('click', event => {
 
 popupCloseButtons.forEach(button => {
   button.addEventListener('click', event => {
-    closePopup(cardPopup);
+    const popupClosest = event.target.closest('.popup');
+    closePopup(popupClosest);
   });
 });
 
