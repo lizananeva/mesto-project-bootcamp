@@ -45,10 +45,12 @@ function createCard({name, link}) {
   const cardImage = card.querySelector('.photo__image');
   const cardCaption = card.querySelector('.photo__caption');
   const cardLikeButton = card.querySelector('.photo__like-button');
+  const cardDeleteButton = card.querySelector('.photo__delete-button');
   cardImage.src = link;
   cardImage.alt = name;
   cardCaption.textContent = name;
   cardLikeButton.addEventListener('click', event => event.target.classList.toggle('photo__like-button_active'));
+  cardDeleteButton.addEventListener('click', () => card.remove());
   return card;
 }
 
