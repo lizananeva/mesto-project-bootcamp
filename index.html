@@ -21,82 +21,7 @@
       <button class="profile__add-button" type="button" aria-label="Добавить фото"></button>
     </section>
     <section class="photo-grid" aria-label="Галерея">
-      <ul class="photo-grid__list">
-        <li>
-          <article class="photo">
-            <img class="photo__image" src="images/content/nizhny-novgorod.jpg" alt="Вид на Волгу возле Кремля, Нижний Новгород">
-            <div class="photo__footer">
-              <h2 class="photo__caption text-ellipses">Нижний Новгород</h2>
-              <button class="photo__like-button" type="button" aria-label="Нравится"></button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="photo">
-            <img class="photo__image" src="images/content/tambov.jpg" alt="Вид на вечерний Тамбов">
-            <div class="photo__footer">
-              <h2 class="photo__caption text-ellipses">Тамбов</h2>
-              <button class="photo__like-button" type="button" aria-label="Нравится">
-                <svg class="photo__like-button-icon">
-                  <use xlink:href="images/icons/sprite.svg#heart" />
-                </svg>
-              </button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="photo">
-            <img class="photo__image" src="images/content/novosibirsk.jpg" alt="Новосибирск">
-            <div class="photo__footer">
-              <h2 class="photo__caption text-ellipses">Новосибирск</h2>
-              <button class="photo__like-button" type="button" aria-label="Нравится">
-                <svg class="photo__like-button-icon">
-                  <use xlink:href="images/icons/sprite.svg#heart" />
-                </svg>
-              </button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="photo">
-            <img class="photo__image" src="images/content/kazan.jpg" alt="Вид на Казанский кремль ночью">
-            <div class="photo__footer">
-              <h2 class="photo__caption text-ellipses">Казань</h2>
-              <button class="photo__like-button" type="button" aria-label="Нравится">
-                <svg class="photo__like-button-icon">
-                  <use xlink:href="images/icons/sprite.svg#heart" />
-                </svg>
-              </button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="photo">
-            <img class="photo__image" src="images/content/tver.jpg" alt="Старый Волжский мост, Тверь">
-            <div class="photo__footer">
-              <h2 class="photo__caption text-ellipses">Тверь</h2>
-              <button class="photo__like-button" type="button" aria-label="Нравится">
-                <svg class="photo__like-button-icon">
-                  <use xlink:href="images/icons/sprite.svg#heart" />
-                </svg>
-              </button>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="photo">
-            <img class="photo__image" src="images/content/yekaterinburg.jpg" alt="Дом Севастьянова, Екатеринбург">
-            <div class="photo__footer">
-              <h2 class="photo__caption text-ellipses">Екатеринбург</h2>
-              <button class="photo__like-button" type="button" aria-label="Нравится">
-                <svg class="photo__like-button-icon">
-                  <use xlink:href="images/icons/sprite.svg#heart" />
-                </svg>
-              </button>
-            </div>
-          </article>
-        </li>
-      </ul>
+      <ul class="photo-grid__list"></ul>
     </section>
   </main>
   <footer class="footer">
@@ -118,5 +43,17 @@
       </form>
     </div>
   </div>
+  <template id="card">
+    <li class="photo-grid__item">
+      <article class="photo">
+        <img class="photo__image" src="" alt="">
+        <div class="photo__footer">
+          <h2 class="photo__caption text-ellipses"></h2>
+          <button class="photo__like-button" type="button" aria-label="Нравится"></button>
+        </div>
+      </article>
+    </li>
+  </template>
+  <script src="scripts/index.js"></script>
 </body>
 </html>
