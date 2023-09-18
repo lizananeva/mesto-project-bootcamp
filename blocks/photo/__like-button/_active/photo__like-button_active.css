@@ -1,0 +1,4 @@
+.photo__like-button_active {
+  background-image: url(../../../../images/icons/heart-black.svg);
+  transition: opacity .2s;
+}
