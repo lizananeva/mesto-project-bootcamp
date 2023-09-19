@@ -28,7 +28,7 @@ const initialCards = [
 //Редактирование профиля
 const profileEditButton = document.querySelector('.profile__edit-button'); //Кнопка редактирования профиля
 const profilePopup = document.querySelector('.popup_type_edit-profile'); //Попап редактирования профиля
-const profileForm = profilePopup.querySelector('.form'); //Форма редактирования профиля
+const profileForm = document.forms['profile-form']; //Форма редактирования профиля
 const profileNameInput = profileForm.querySelector('.form__input[name=profile-name]'); //Поле ввода (Имя) в форме редактирования профиля
 const profileDescInput = profileForm.querySelector('.form__input[name=profile-desc]'); //Поле ввода (Род деятельности) в форме редактирования профиля
 const profileName = document.querySelector('.profile__name'); //Имя профиля на странице
@@ -42,7 +42,7 @@ const cardsList = document.querySelector('.photo-grid__list'); //Контейн�
 //Добавление новой карточки
 const cardAddButton = document.querySelector('.profile__add-button'); //Кнопка добавления карточки
 const cardPopup = document.querySelector('.popup_type_add-card'); //Попап добавления карточки
-const cardForm = cardPopup.querySelector('.form'); //Форма добавления карточки
+const cardForm = document.forms['card-form']; //Форма добавления карточки
 const cardName = cardForm.querySelector('.form__input[name=card-name]'); //Поле ввода (Название) в форме добавления карточки
 const cardLink = cardForm.querySelector('.form__input[name=card-link]'); //Поле ввода (Ссылка на картинку) в форме добавления карточки
 
@@ -55,15 +55,11 @@ const photoPopupCaption = photoPopup.querySelector('.popup__caption'); //Под�
 const popupCloseButtons = document.querySelectorAll('.popup__close');
 
 function openPopup(popup) {
-  if (!popup.classList.contains('popup_opened')) {
-    popup.classList.add('popup_opened');
-  }
+  popup.classList.add('popup_opened');
 }
 
 function closePopup(popup) {
-  if (popup.classList.contains('popup_opened')) {
-    popup.classList.remove('popup_opened');
-  }
+  popup.classList.remove('popup_opened');
 }
 
 function handleProfileFormSubmit(event) {
@@ -106,8 +102,7 @@ function handleCardFormSubmit(event) {
   event.preventDefault();
   const newCard = createCard({name: cardName.value, link: cardLink.value});
   addCard(newCard);
-  cardName.value = '';
-  cardLink.value = '';
+  event.target.reset();
   closePopup(cardPopup);
 }
 
