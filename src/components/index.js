@@ -1,3 +1,4 @@
+import './../pages/index.css';
 import initialCards from './data.js';
 import { createCard, addCard } from './card.js';
 import { removeErrors, enableSubmitButton, disableSubmitButton, enableValidation } from './validate.js';

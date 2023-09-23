@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title lang="en">Mesto</title>
-  <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="images/icons/logo.svg" alt="Логотип проекта Mesto">
+    <img class="header__logo" src="<%=require('./images/icons/logo.svg')%>" alt="Логотип проекта Mesto">
   </header>
   <main class="content">
     <section class="profile" aria-label="Профиль пользователя">
-      <img class="profile__avatar" src="images/content/avatar.jpg" alt="Аватар пользователя">
+      <img class="profile__avatar" src="<%=require('./images/content/avatar.jpg')%>" alt="Аватар пользователя">
       <div class="profile__info">
         <h1 class="profile__name text-ellipses">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
@@ -80,6 +79,5 @@
       </article>
     </li>
   </template>
-  <script src="components/index.js" type="module"></script>
 </body>
 </html>
