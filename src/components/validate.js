@@ -25,7 +25,7 @@ const hasInvalidInput = inputList => {
 }
 
 const removeErrors = (formElement, config) => {
-  const inputList = Array.from(formElement.querySelectorAll(`.${config.inputSelector}`));
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
   inputList.forEach(inputElement => {
     hideInputError(formElement, inputElement, config);
   });
@@ -48,8 +48,8 @@ const toggleButtonState = (inputList, buttonElement, config) => {
 }
 
 const setEventListeners = (formElement, config) => {
-  const inputList = Array.from(formElement.querySelectorAll(`.${config.inputSelector}`));
-  const submitButton = formElement.querySelector(`.${config.submitButtonSelector}`);
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+  const submitButton = formElement.querySelector(config.submitButtonSelector);
   toggleButtonState(inputList, submitButton, config);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
@@ -60,7 +60,7 @@ const setEventListeners = (formElement, config) => {
 }
 
 const enableValidation = config => {
-  const formList = Array.from(document.querySelectorAll(`${config.formSelector}`));
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', event => {
       event.preventDefault();

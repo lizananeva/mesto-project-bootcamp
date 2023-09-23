@@ -15,13 +15,15 @@ const handlePopupOverlay = event => {
 const openPopup = popup => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handlePopupEscape);
-  document.addEventListener('mousedown', handlePopupOverlay);
 }
 
 const closePopup = popup => {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', handlePopupEscape);
-  document.removeEventListener('mousedown', handlePopupOverlay);
 }
+
+popupList.forEach(popup => {
+  popup.addEventListener('mousedown', handlePopupOverlay);
+});
 
 export { openPopup, closePopup }

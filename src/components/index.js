@@ -19,9 +19,9 @@ const cardNameInput = cardForm.elements['name'];
 const cardLinkInput = cardForm.elements['link'];
 //Объект настроек валидации всех форм
 const validationConfig = {
-  formSelector: 'form',
-  inputSelector: 'form__input',
-  submitButtonSelector: 'form__save',
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__save',
   inactiveButtonClass: 'form__save_disabled',
   inputErrorClass: 'form__input_invalid',
   errorClass: 'form__input-error'
@@ -45,8 +45,7 @@ const handleCardFormSubmit = event => {
   event.preventDefault();
   const newCard = createCard({name: cardNameInput.value, link: cardLinkInput.value});
   addCard(newCard);
-  event.target.reset();
-  disableSubmitButton(cardForm.querySelector(`.${validationConfig.submitButtonSelector}`), validationConfig);
+  disableSubmitButton(event.submitter, validationConfig);
   closePopup(cardPopup);
 }
 
@@ -54,7 +53,7 @@ profileEditButton.addEventListener('click', event => {
   profileNameInput.value = profileName.textContent;
   profileDescInput.value = profileDesc.textContent;
   removeErrors(profileForm, validationConfig);
-  enableSubmitButton(profileForm.querySelector(`.${validationConfig.submitButtonSelector}`), validationConfig);
+  enableSubmitButton(profileForm.querySelector(validationConfig.submitButtonSelector), validationConfig);
   openPopup(profilePopup);
 });
 
