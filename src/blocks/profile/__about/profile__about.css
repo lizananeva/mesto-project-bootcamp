@@ -1,4 +1,4 @@
-.profile__description {
+.profile__about {
   grid-column: 1 / -1;
   font-size: 18px;
   line-height: 1;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .profile__description {
+  .profile__about {
     font-size: 14px;
   }
 }

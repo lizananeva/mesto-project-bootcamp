@@ -11,11 +11,13 @@
   </header>
   <main class="content">
     <section class="profile" aria-label="Профиль пользователя">
-      <img class="profile__avatar" src="<%=require('./images/content/avatar.jpg')%>" alt="Аватар пользователя">
+      <button class="profile__avatar-edit-button" type="button" aria-label="Редактировать аватар пользователя">
+        <img class="profile__avatar" src="<%=require('./images/content/avatar.jpg')%>" alt="Аватар пользователя">
+      </button>
       <div class="profile__info">
         <h1 class="profile__name text-ellipses">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
-        <p class="profile__description text-ellipses">Исследователь океана</p>
+        <p class="profile__about text-ellipses">Исследователь океана</p>
       </div>
       <button class="profile__add-button" type="button" aria-label="Добавить фото"></button>
     </section>
@@ -36,8 +38,21 @@
           <span class="profile-name-error form__input-error"></span>
         </label>
         <label class="form__field">
-          <input id="profile-desc" class="form__input" type="text" name="desc" placeholder="Род деятельности" minlength="2" maxlength="200" required autocomplete="one-time-code">
-          <span class="profile-desc-error form__input-error"></span>
+          <input id="profile-about" class="form__input" type="text" name="about" placeholder="Род деятельности" minlength="2" maxlength="200" required autocomplete="one-time-code">
+          <span class="profile-about-error form__input-error"></span>
+        </label>
+        <button class="form__save" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_type_edit-avatar">
+    <div class="popup__container">
+      <button  class="popup__close" type="button" aria-label="Закрыть"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form form" name="avatar" novalidate>
+        <label class="form__field">
+          <input id="avatar-link" class="form__input" type="url" name="link" placeholder="Ссылка на аватар" required autocomplete="one-time-code">
+          <span class="avatar-link-error form__input-error"></span>
         </label>
         <button class="form__save" type="submit">Сохранить</button>
       </form>
@@ -60,6 +75,15 @@
       </form>
     </div>
   </div>
+  <div class="popup popup_type_delete-card">
+    <div class="popup__container">
+      <button  class="popup__close" type="button" aria-label="Закрыть"></button>
+      <h2 class="popup__title popup__title_delete">Вы уверены?</h2>
+      <form class="popup__form form" name="delete">
+        <button class="form__save form__save_delete" type="submit">Да</button>
+      </form>
+    </div>
+  </div>
   <div class="popup popup_type_photo">
     <figure class="popup__photo">
       <button  class="popup__close" type="button" aria-label="Закрыть"></button>
@@ -73,7 +97,10 @@
         <img class="photo__image" src="" alt="">
         <div class="photo__footer">
           <h2 class="photo__caption text-ellipses"></h2>
-          <button class="photo__like-button" type="button" aria-label="Нравится"></button>
+          <div class="photo__like-container">
+            <button class="photo__like-button" type="button" aria-label="Нравится"></button>
+            <span class="photo__like-count"></span>
+          </div>
         </div>
         <button class="photo__delete-button" type="button" aria-label="Удалить"></button>
       </article>

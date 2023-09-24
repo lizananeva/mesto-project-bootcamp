@@ -3,6 +3,5 @@
   height: 120px;
   display: block;
   border-radius: 50%;
-  align-self: start;
   object-fit: cover;
 }
