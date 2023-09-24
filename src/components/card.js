@@ -1,16 +1,17 @@
-import { deleteUserCard, likeCard, unlikeCard } from './api';
-import { openPopup, closePopup } from './modal.js';
+import { likeCard, unlikeCard } from './api';
+import { openPopup } from './modal.js';
 
-const cardTemplate = document.querySelector('#card').content;
+const cardTemplate = document.getElementById('card').content;
 const cardElement = cardTemplate.querySelector('.photo-grid__item');
 const cardsList = document.querySelector('.photo-grid__list');
 const photoPopup = document.querySelector('.popup_type_photo');
 const photoPopupImage = photoPopup.querySelector('.popup__image');
 const photoPopupCaption = photoPopup.querySelector('.popup__caption');
-const delPopup = document.querySelector('.popup_type_delete-card');
-const delForm = document.forms['delete'];
 
-const createCard = data => {
+export const delPopup = document.querySelector('.popup_type_delete-card');
+export const cardForDelete = {};
+
+const createCard = (data, userId) => {
   const card = cardElement.cloneNode(true);
   const cardImage = card.querySelector('.photo__image');
   const cardCaption = card.querySelector('.photo__caption');
@@ -23,11 +24,11 @@ const createCard = data => {
   cardCaption.textContent = data.name;
   cardLikesCount.textContent = data.likes.length;
 
-  if (data.likes.some(({ _id }) => _id === localStorage.getItem('id'))) {
+  if (data.likes.some(({ _id }) => _id === userId)) {
       cardLikeButton.classList.add('photo__like-button_active');
   }
 
-  if (data.owner._id !== localStorage.getItem('id')) {
+  if (data.owner._id !== userId) {
     cardDeleteButton.remove();
   }
 
@@ -56,16 +57,10 @@ const createCard = data => {
   });
   cardDeleteButton.addEventListener('click', () => {
     openPopup(delPopup);
-    delForm.addEventListener('submit', event => {
-      event.preventDefault();
-      deleteUserCard(data._id)
-      .then(() => {
-        card.remove();
-        closePopup(delPopup);
-      })
-      .catch(err => console.log(err.status))
-    });
+    cardForDelete.id = data._id;
+    cardForDelete.card = card;
   });
+
   return card;
 }
 
