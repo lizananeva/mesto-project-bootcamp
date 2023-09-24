@@ -43,6 +43,6 @@
 .form__input-error{box-sizing:border-box;color:red;display:block;font-size:12px;line-height:1;min-height:30px;opacity:0;padding-top:5px;transition:opacity .3s}
 .form__input-error_active{opacity:1}
 .form__save{background-color:#000;border:1px solid transparent;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;line-height:1;margin-top:18px;padding:15px 10px;transition:opacity .4s;width:100%}.form__save:hover{opacity:.8}@media screen and (max-width:480px){.form__save{font-size:14px;margin-top:16px}}
-.form__save_disabled{background-color:transparent;border-color:#c4c4c4;color:#c4c4c4}
+.form__save_disabled{background-color:transparent;border-color:#c4c4c4;color:#c4c4c4;cursor:auto}
 .form__save_delete{margin:0}
 
